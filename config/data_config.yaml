@@ -1,0 +1,4 @@
+batch_size: 32
+num_epochs: 100
+target_variable: ['NACCALZD',] # target variable
+missing_values_threshold: 0.5 # drop columns with more than 50% missing values
