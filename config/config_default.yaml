@@ -1,12 +1,14 @@
-target_variable: 'NACCALZD' # target variable
+# target variable
+target_variable: 
+  name: 'NACCALZD' 
+  map: {0: 0, 1: 1, 8: 0} #map the three classes variable to binary variable
 test_size: 0.2 # test size
+groups: 'NACCID'
+k_fold: 4
 random_state: 42 # random state
 model_dict:
   {
-    'lr': {
-      'C': 100,
-      'solver': 'saga'
-    },
+    
     'gb': {
       'n_estimators': 200,
       'learning_rate': 0.05,
@@ -14,24 +16,7 @@ model_dict:
       'min_samples_leaf': 50,
       'max_features': 0.3
     },
-    'rf': {
-      'n_estimators': 200,
-      'max_features': 'auto',
-      'max_depth' : 6,
-      'criterion' : 'entropy'
-    },
-    'svm': {
-      'C': 100,
-      'gamma': 0.01,
-      'kernel': 'rbf'
-    },
-    'nn' :{
-      'hidden_layer_sizes': [128,32],
-      'activation': 'tanh',
-      'solver': 'adam',
-      'alpha': 0.05,
-      'learning_rate': 'adaptive',
-    }
+    
   }
 preprocessing:
   drop_columns: ['NACCETPR', 'NACCALZP', 'PROBAD', 'PROBADIF', 'POSSAD', 'POSSADIF', 'NACCADMD']# drop columns
